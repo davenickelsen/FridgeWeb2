@@ -1,0 +1,11 @@
+﻿@model FridgeWeb2.Models.WeekHeaderViewModel
+<div class="user-info">
+    <div class="user">
+        @Html.DropDownListFor(m => m.SelectedUserName, @Model.Users, new { @id = "user", @data_bind = "value: userId, event: {change: onUserChanged}" })
+    </div>
+    <div class="rankings">@Model.Rankings</div>
+</div>
+<div class="week">
+    @Html.DropDownListFor(m => m.SelectedWeek, @Model.Weeks, new { @id = "week", @data_bind = "{value: week, event: {change: onWeekChanged}}" })
+</div>
+

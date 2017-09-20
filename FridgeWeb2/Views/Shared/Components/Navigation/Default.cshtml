@@ -1,0 +1,24 @@
+﻿@model FridgeCoreWeb.Models.NavigationViewModel
+<link rel="stylesheet" type="text/css" href="/css/nav.css" />
+<div class="nav">
+    <div class="title">
+        Fridge Football
+    </div>
+    <div class="inner-nav">
+        <div class="picks-link">
+            <a href="/">Picks</a>
+        </div>
+        @if (@Model.IsAdmin)
+        {
+            <div class="line-link">
+                <a href="/Lines">Lines</a>
+            </div>
+        }
+        <div class="standings-link">
+            <a href="/Standings">Standings</a>
+        </div>
+        <div class="log-out-link">
+            <a href="Account/LogOut">Log Out</a>
+        </div>
+    </div>
+</div>

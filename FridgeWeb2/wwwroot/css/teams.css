@@ -1,0 +1,111 @@
+.team-selection {
+  background-image: url('/images/pick.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 70px;
+  width: 70px;
+  padding: 4px 4px 4px 4px;
+  transition: background 1s ease-in-out;
+}
+.team-selection.ari {
+  background-image: url('/images/ARI.png');
+}
+.team-selection.atl {
+  background-image: url('/images/ATL.png');
+}
+.team-selection.bal {
+  background-image: url('/images/BAL.png');
+}
+.team-selection.buf {
+  background-image: url('/images/BUF.png');
+}
+.team-selection.car {
+  background-image: url('/images/CAR.png');
+}
+.team-selection .check {
+  background-image: url('/images/check.png');
+}
+.team-selection.chi {
+  background-image: url('/images/CHI.png');
+}
+.team-selection.cin {
+  background-image: url('/images/CIN.png');
+}
+.team-selection.cle {
+  background-image: url('/images/CLE.png');
+}
+.team-selection.dal {
+  background-image: url('/images/DAL.png');
+}
+.team-selection.den {
+  background-image: url('/images/DEN.png');
+}
+.team-selection.det {
+  background-image: url('/images/DET.png');
+}
+.team-selection.gb {
+  background-image: url('/images/GB.png');
+}
+.team-selection.hou {
+  background-image: url('/images/HOU.png');
+}
+.team-selection.ind {
+  background-image: url('/images/IND.png');
+}
+.team-selection.jax {
+  background-image: url('/images/JAX.png');
+}
+.team-selection.kc {
+  background-image: url('/images/KC.png');
+}
+.team-selection.mia {
+  background-image: url('/images/MIA.png');
+}
+.team-selection.min {
+  background-image: url('/images/MIN.png');
+}
+.team-selection.ne {
+  background-image: url('/images/NE.png');
+}
+.team-selection.no {
+  background-image: url('/images/NO.png');
+}
+.team-selection.nyg {
+  background-image: url('/images/NYG.png');
+}
+.team-selection.nyj {
+  background-image: url('/images/NYJ.png');
+}
+.team-selection.oak {
+  background-image: url('/images/OAK.png');
+}
+.team-selection.phi {
+  background-image: url('/images/PHI.png');
+}
+.team-selection.pit {
+  background-image: url('/images/PIT.png');
+}
+.team-selection.redx {
+  background-image: url('/images/redx.png');
+}
+.team-selection.sd {
+  background-image: url('/images/SD.png');
+}
+.team-selection.sea {
+  background-image: url('/images/SEA.png');
+}
+.team-selection.sf {
+  background-image: url('/images/SF.png');
+}
+.team-selection.stl {
+  background-image: url('/images/STL.png');
+}
+.team-selection.tam {
+  background-image: url('/images/TAM.png');
+}
+.team-selection.ten {
+  background-image: url('/images/TEN.png');
+}
+.team-selection.was {
+  background-image: url('/images/WAS.png');
+}

@@ -1,0 +1,57 @@
+@import 'shared.less';
+
+div.nav {
+    width: 100%;
+    min-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    background-color: darkorange;
+    border: 1px solid black;
+
+    div.title {
+        background-color: black;
+        color: darkorange;
+        text-align: center;
+        width: 100%;
+        font-weight: bold;
+        font-family: @default-font;
+        padding: 6px 2px 6px 2px;
+    }
+
+    div.inner-nav {
+        display: flex;
+        width: 70%;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: darkorange;
+        font-family: @default-font;
+        font-size: large;
+        color: white;
+        font-weight: bold;
+        padding: 6px 2px 6px 2px;
+
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+
+            a:visited {
+                color: white;
+                font-weight: bold;
+            }
+
+            a:hover {
+                color: navy;
+                cursor: pointer;
+            }
+        }
+    }
+}
+

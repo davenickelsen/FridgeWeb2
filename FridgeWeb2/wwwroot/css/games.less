@@ -1,0 +1,223 @@
+﻿@import 'shared.less';
+
+div.user-header {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.picks-container {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    div.my-picks-header {
+        display: flex;
+        flex-direction: row;
+        font-size: 13pt;
+        font-weight: bold;
+        justify-content: space-between;
+
+        div.user-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            div.user {
+
+                select {
+                    font-weight: bold;
+                    color: navy;
+                    padding-top: 3px;
+                    font-family: @default-font;
+                    font-size: large;
+                }
+            }
+
+            div.rankings {
+                color: navy;
+                font-family: @default-font;
+                font-size: medium;
+                padding-top: 3px;
+            }
+        }
+
+
+        div.week {
+
+            select {
+                color: navy;
+                font-weight: bold;
+                font-family: @default-font;
+                font-size: large;
+            }
+        }
+
+        input.editable {
+            display: inline;
+            .action-button;
+        }
+
+        input.locked {
+            display: none;
+        }
+    }
+
+    div.my-picks {
+        display: flex;
+        flex-direction: column;
+        min-width: 420px;
+        padding-top: 10px;
+
+
+        div.games {
+            display: flex;
+            flex-direction: column;
+
+            div.game-time {
+                text-align: center;
+                font-size: 14pt;
+                font-weight: bold;
+                color: navy;
+                font-family: @default-font;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            div.headers {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                font-weight: bold;
+                color: navy;
+                text-align: center;
+
+                .home, .away, .winner {
+                    width: 80px;
+                }
+
+                .line {
+                    min-width: 40px;
+                }
+
+                .vs-spread {
+                    width: 90px;
+                }
+
+                .confidence {
+                    width: 90px;
+                }
+            }
+
+            div.game {
+                &:nth-child(even) {
+                    background-color: lightgray;
+
+                    .winner {
+                        border: 4px solid lightgray;
+
+                        &.unlocked {
+                            cursor: pointer;
+                        }
+                    }
+
+                    .vs-spread {
+                        border: 4px solid lightgray;
+
+                        &.unlocked {
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .locked {
+
+                    div.pick-status {
+                        background-repeat: no-repeat;
+                        height: 16px;
+                        width: 16px;
+                        position: relative;
+                        top: 45px;
+                        left: 15px;
+
+                        &.correct {
+                            background-image: url('/images/check.gif');
+                        }
+
+                        &.wrong {
+                            background-image: url('/images/redx.gif');
+                        }
+
+                        &.pending {
+                            background-image: url('/images/lock.gif');
+                        }
+                    }
+                }
+
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                border: 1px solid black;
+
+                .home, .away {
+                    width: 80px;
+                    padding: 4px 4px 4px 4px;
+                }
+
+                .line {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+                    font-size: 14pt;
+                    font-weight: bold;
+                    width: 40px;
+                }
+
+
+                .winner, .vs-spread {
+                    border: 4px solid white;
+                    display: flex;
+                    flex-direction: row;
+                    width: 90px;
+
+                    &.unlocked {
+                        cursor: pointer;
+
+                        &:hover {
+                            /*border: 4px solid royalblue;*/
+                        }
+                    }
+
+                    div.none {
+                        display: none;
+                    }
+                }
+
+                .confidence {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 90px;
+
+
+                    select {
+                        font-weight: bold;
+                        font-size: large;
+                        border: 2px solid black;
+                    }
+
+                    span {
+                        font-size: 14pt;
+                        font-weight: bold;
+                    }
+
+                    div.pick-status {
+                        top: 18px;
+                    }
+                }
+            }
+        }
+    }
+}

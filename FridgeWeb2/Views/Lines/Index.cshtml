@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@model System.Collections.Generic.IEnumerable<FridgeCoreWeb.Models.LineViewModel>
+
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="~/css/lines.css" />
+<link rel="stylesheet" href="~/css/teams.css" />
+<link rel="stylesheet" href="~/css/alertify.min.css" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="~/js/alertify.min.js"></script>
+<script type="text/javascript">
+    function onLinesSaved(data) {
+        alertify.success(data);
+    }
+
+    function saveLines() {
+        var lines = $(".spread-input").toArray().map(function (input) {
+            var game = $(input);
+            return {GameId: parseInt(game.prop("name")), Spread: parseFloat(game.val() || 0)};
+        });
+        $.ajax({type: "POST", url: "/api/Lines", contentType: "application/json", data: JSON.stringify(lines), success: onLinesSaved});
+    }
+</script>
+@await Component.InvokeAsync("Navigation")
+<div class="save"><input type="button" onclick="saveLines()" value="Save"/></div>
+<div class="lines">
+
+    <div class="headers">
+        <div class="game-time">Time</div>
+        <div class="home">Home</div>
+        <div class="spread">Spread</div>
+        <div class="away">Away</div>
+    </div>
+    
+    @foreach (var line in @Model)
+    {
+        <div class="line">
+            <div class="game-time">@line.GameTime.ToString()</div>
+            <div class="team-selection @line.HomeTeam"></div>
+            <div class="spread"><input type="text" class="spread-input" name="@line.GameId" value="@line.Spread"/></div>
+            <div class="team-selection @line.AwayTeam"></div>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,113 @@
+@import './shared.less';
+
+div.standings-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    div.standings-list {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        font-family: @default-font;
+        flex-direction: column;
+
+
+        div {
+            padding: 6px 6px 6px 6px;
+        }
+
+        div.full-name {
+            min-width: 140px;
+        }
+
+        .picks-correct, .vs-spread-correct, .confidence-correct {
+            min-width: 120px;
+        }
+
+        .sort-arrow {
+            display: none;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        div.standings-header {
+            display: flex;
+            flex-direction: row;
+
+            div.picks-correct {
+                div#picksSort {
+                    &.picks-desc {
+                        display: inline;
+                        background-image: url('/images/arrow-down.gif');
+                        background-repeat: no-repeat;
+                    }
+
+                    &.picks-asc {
+                        display: inline;
+                        background-image: url('/images/arrow-up.gif');
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+
+            div.vs-spread-correct {
+                div#spreadSort {
+                    &.spread-desc {
+                        display: inline;
+                        background-image: url('/images/arrow-down.gif');
+                        background-repeat: no-repeat;
+                    }
+
+                    &.spread-asc {
+                        display: inline;
+                        background-image: url('/images/arrow-up.gif');
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+
+            div.confidence-correct {
+                div#confidenceSort {
+                    &.confidence-desc {
+                        display: inline;
+                        background-image: url('/images/arrow-down.gif');
+                        background-repeat: no-repeat;
+                    }
+
+                    &.confidence-asc {
+                        display: inline;
+                        background-image: url('/images/arrow-up.gif');
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+        }
+
+
+
+        div.standing {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid black;
+
+            &:nth-child(even) {
+                background-color: lightgray;
+            }
+
+            &.current-user {
+                background-color: lightblue;
+            }
+
+            div.picks-correct {
+            }
+
+            div.vs-spread-correct {
+            }
+
+            div.picks-correct {
+            }
+        }
+    }
+}

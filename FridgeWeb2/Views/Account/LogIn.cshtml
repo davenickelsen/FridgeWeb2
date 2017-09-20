@@ -1,0 +1,28 @@
+﻿@model FridgeCoreWeb.Models.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Fridge Picks</title>
+    <link rel="stylesheet" href="~/css/login.css" />
+</head>
+<body>
+    <form action="/Account/Login" method="post">
+        <div class="login">
+            <div class="text-logo"></div>
+            <div class="logo"></div>
+            <div class="fields">
+                <input name="UserName" type="text" placeholder="User name"/>
+                <input type="password" name="Password" placeholder="Password"/>
+                <input type="submit" value="Log In"/>
+            </div>
+            <div asp-validation-summary="All"></div>
+        </div>
+    </form>
+</body>
+</html>

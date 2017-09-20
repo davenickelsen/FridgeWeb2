@@ -1,0 +1,31 @@
+﻿@model FridgeCoreWeb.Models.StandingsViewModel
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="css/standings.css" />
+
+@await Component.InvokeAsync("Navigation")
+<div class="standings-container">
+    <div class="standings-list">
+        
+        <div class="standings-header">
+            <div class="full-name">Name</div>
+            <div class="picks-correct"><a href="/Standings?sortDirection=@ViewBag.PicksSort">Picks&nbsp;<div id="picksSort" class="sort-arrow @ViewBag.SortDirection"></div></a></div>
+            <div class="vs-spread-correct"><a href="/Standings?sortDirection=@ViewBag.SpreadSort">Versus Spread&nbsp;<div id="spreadSort" class="sort-arrow @ViewBag.SortDirection"></div></a></div>
+            <div class="confidence-correct"><a href="/Standings?sortDirection=@ViewBag.ConfidenceSort">Confidence&nbsp;<div id="confidenceSort" class="sort-arrow @ViewBag.SortDirection"></div></a></div>
+        </div>
+
+    @foreach (var standing in @Model.Standings)
+    {
+        <div class="standing @(standing.UserId == @Model.CurrentUserId ? "current-user" : "")">
+            <div class="full-name">@standing.FullName</div>
+            <div class="picks-correct">@standing.PicksCorrect</div>
+            <div class="vs-spread-correct">@standing.VersusSpreadCorrect</div>
+            <div class="confidence-correct">@standing.ConfidenceCorrect</div>
+        </div>
+    }
+    
+    </div>
+</div>
+

@@ -1,0 +1,73 @@
+.action-button {
+  font-family: 'Bookman Old Style';
+  font-size: larger;
+  background-color: cornflowerblue;
+  color: white;
+}
+body {
+  margin: 0;
+}
+div.save input {
+  font-family: 'Bookman Old Style';
+  font-size: larger;
+  background-color: cornflowerblue;
+  color: white;
+}
+div.lines {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.lines div.headers {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-size: 13pt;
+  font-weight: bold;
+}
+div.lines div.headers div.game-time {
+  width: 40%;
+  text-align: center;
+}
+div.lines div.headers div.spread {
+  width: 10%;
+  text-align: center;
+}
+div.lines div.headers div.home,
+div.lines div.headers div.away {
+  width: 25%;
+  text-align: center;
+}
+div.lines div.line {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: 1px solid black;
+}
+div.lines div.line:nth-child(even) {
+  background-color: lightgray;
+}
+div.lines div.line div.game-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+div.lines div.line div.spread {
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+}
+div.lines div.line div.spread input {
+  width: 50px;
+  font-family: 'Bookman Old Style';
+  font-weight: bold;
+}
+div.lines div.line div.team-selection {
+  width: 25%;
+}

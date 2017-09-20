@@ -1,0 +1,190 @@
+.action-button {
+  font-family: 'Bookman Old Style';
+  font-size: larger;
+  background-color: cornflowerblue;
+  color: white;
+}
+body {
+  margin: 0;
+}
+div.user-header {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.picks-container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.picks-container div.my-picks-header {
+  display: flex;
+  flex-direction: row;
+  font-size: 13pt;
+  font-weight: bold;
+  justify-content: space-between;
+}
+div.picks-container div.my-picks-header div.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+div.picks-container div.my-picks-header div.user-info div.user select {
+  font-weight: bold;
+  color: navy;
+  padding-top: 3px;
+  font-family: 'Bookman Old Style';
+  font-size: large;
+}
+div.picks-container div.my-picks-header div.user-info div.rankings {
+  color: navy;
+  font-family: 'Bookman Old Style';
+  font-size: medium;
+  padding-top: 3px;
+}
+div.picks-container div.my-picks-header div.week select {
+  color: navy;
+  font-weight: bold;
+  font-family: 'Bookman Old Style';
+  font-size: large;
+}
+div.picks-container div.my-picks-header input.editable {
+  display: inline;
+  font-family: 'Bookman Old Style';
+  font-size: larger;
+  background-color: cornflowerblue;
+  color: white;
+}
+div.picks-container div.my-picks-header input.locked {
+  display: none;
+}
+div.picks-container div.my-picks {
+  display: flex;
+  flex-direction: column;
+  min-width: 420px;
+  padding-top: 10px;
+}
+div.picks-container div.my-picks div.games {
+  display: flex;
+  flex-direction: column;
+}
+div.picks-container div.my-picks div.games div.game-time {
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+  color: navy;
+  font-family: 'Bookman Old Style';
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+div.picks-container div.my-picks div.games div.headers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-weight: bold;
+  color: navy;
+  text-align: center;
+}
+div.picks-container div.my-picks div.games div.headers .home,
+div.picks-container div.my-picks div.games div.headers .away,
+div.picks-container div.my-picks div.games div.headers .winner {
+  width: 80px;
+}
+div.picks-container div.my-picks div.games div.headers .line {
+  min-width: 40px;
+}
+div.picks-container div.my-picks div.games div.headers .vs-spread {
+  width: 90px;
+}
+div.picks-container div.my-picks div.games div.headers .confidence {
+  width: 90px;
+}
+div.picks-container div.my-picks div.games div.game {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+div.picks-container div.my-picks div.games div.game:nth-child(even) {
+  background-color: lightgray;
+}
+div.picks-container div.my-picks div.games div.game:nth-child(even) .winner {
+  border: 4px solid lightgray;
+}
+div.picks-container div.my-picks div.games div.game:nth-child(even) .winner.unlocked {
+  cursor: pointer;
+}
+div.picks-container div.my-picks div.games div.game:nth-child(even) .vs-spread {
+  border: 4px solid lightgray;
+}
+div.picks-container div.my-picks div.games div.game:nth-child(even) .vs-spread.unlocked {
+  cursor: pointer;
+}
+div.picks-container div.my-picks div.games div.game .locked div.pick-status {
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+  position: relative;
+  top: 45px;
+  left: 15px;
+}
+div.picks-container div.my-picks div.games div.game .locked div.pick-status.correct {
+  background-image: url('/images/check.gif');
+}
+div.picks-container div.my-picks div.games div.game .locked div.pick-status.wrong {
+  background-image: url('/images/redx.gif');
+}
+div.picks-container div.my-picks div.games div.game .locked div.pick-status.pending {
+  background-image: url('/images/lock.gif');
+}
+div.picks-container div.my-picks div.games div.game .home,
+div.picks-container div.my-picks div.games div.game .away {
+  width: 80px;
+  padding: 4px 4px 4px 4px;
+}
+div.picks-container div.my-picks div.games div.game .line {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+  width: 40px;
+}
+div.picks-container div.my-picks div.games div.game .winner,
+div.picks-container div.my-picks div.games div.game .vs-spread {
+  border: 4px solid white;
+  display: flex;
+  flex-direction: row;
+  width: 90px;
+}
+div.picks-container div.my-picks div.games div.game .winner.unlocked,
+div.picks-container div.my-picks div.games div.game .vs-spread.unlocked {
+  cursor: pointer;
+}
+div.picks-container div.my-picks div.games div.game .winner.unlocked:hover,
+div.picks-container div.my-picks div.games div.game .vs-spread.unlocked:hover {
+  /*border: 4px solid royalblue;*/
+}
+div.picks-container div.my-picks div.games div.game .winner div.none,
+div.picks-container div.my-picks div.games div.game .vs-spread div.none {
+  display: none;
+}
+div.picks-container div.my-picks div.games div.game .confidence {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+}
+div.picks-container div.my-picks div.games div.game .confidence select {
+  font-weight: bold;
+  font-size: large;
+  border: 2px solid black;
+}
+div.picks-container div.my-picks div.games div.game .confidence span {
+  font-size: 14pt;
+  font-weight: bold;
+}
+div.picks-container div.my-picks div.games div.game .confidence div.pick-status {
+  top: 18px;
+}

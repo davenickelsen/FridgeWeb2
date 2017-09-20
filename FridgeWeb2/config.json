@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "FridgeConnection": "server=localhost;port=3306;database=fridgefootball;user=fridgefootball;password=G0Whyte!;Pooling=True"
+  }
+}

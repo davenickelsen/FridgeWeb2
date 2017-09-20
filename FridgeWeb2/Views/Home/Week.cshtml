@@ -1,0 +1,59 @@
+﻿@model FridgeCoreWeb.Models.WeekViewModel
+
+<link rel="stylesheet" type="text/css" href="~/css/teams.css"/>
+<div class="games">
+    @foreach (var gameSet in Model.GameGroups)
+    {
+        <div class="game-time">@gameSet.GameTime.ToString("dddd, MMMM d h:mm tt")</div>
+        <div class="headers">
+            <div class="home">Home</div>
+            <div class="line">Line</div>
+            <div class="away">Away</div>
+            <div class="winner">Winner</div>
+            <div class="vs-spread">Vs. Spread</div>
+            <div class="confidence">Confidence</div>
+        </div>
+        foreach (var game in gameSet.GameViewModels)
+        {
+            <div class="game" data-game-id="@game.GameId">
+                <div class="home"><div class="team-selection @game.HomeTeam.ToLower()"></div></div>
+                <div class="line">@game.DisplaySpread</div>
+                <div class="away"><div class="team-selection @game.AwayTeam.ToLower()"></div></div>
+                <div class="winner" data-bind="{css: editable() ? 'unlocked' : 'locked'}">                    
+                    <div class="team-selection @game.EvenUpSelection?.ToLower()" data-bind="click: changeWinner, css: winnerCss"></div>
+                    <div class="pick-status" data-bind="{css: evenUpStatus}"></div> 
+                </div>
+                <div class="vs-spread" data-bind="{css: editable() ? 'unlocked' : 'locked'}">                    
+                    <div class="team-selection @game.VsSpreadSelection?.ToLower()" data-bind="click: changeVersusSpread, css: vsSpreadCss"></div>
+                    <div class="pick-status" data-bind="{css: vsSpreadStatus}"></div> 
+                </div>
+                <div class="confidence" data-bind="{css: editable() ? 'unlocked' : 'locked'}">
+                    <!-- ko if: editable() -->
+                    <select class="confidence-select" data-bind="multiple: false, options: confidences, value: confidence, event: {change: onConfidenceChanged}"></select>
+                    <!-- /ko -->
+                    <!-- ko if: !editable() -->
+                    <span>@game.Confidence.GetValueOrDefault()</span>
+                    <!-- /ko -->
+                    <div class="pick-status" data-bind="{css: confidenceStatus}"></div>
+                </div>
+            </div>
+        }
+    }
+
+</div>
+<script>
+    var availableConfidences = [@Html.Raw(string.Join(",", @Model.AvailableConfidences))];
+    var weekModel = @Json.Serialize(@Model);
+    var gameCount = weekModel.gameCount;
+        
+    $(document).ready(function () {
+        var sharedBus = ko.observable({});
+        weekModel.gameGroups.forEach(function(group) {
+            group.gameViewModels.forEach(function(gameModel) {
+                var gameRow = $("div.game[data-game-id='" + gameModel.gameId + "']")[0];
+                var gameViewModel = new GameViewModel(availableConfidences, gameModel, sharedBus);
+                ko.applyBindings(gameViewModel, gameRow);
+            });
+        });
+    });
+</script>

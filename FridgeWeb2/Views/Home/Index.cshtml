@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@model FridgeCoreWeb.Models.IndexViewModel
+<link rel="stylesheet" href="~/css/games.css" />
+<link rel="stylesheet" href="~/css/alertify.min.css" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="~/js/knockout-3.4.2.js"></script>
+<script type="text/javascript" src="~/js/alertify.min.js"></script>
+<script type="text/javascript" src="~/js/Index.js"></script>
+<script type="text/javascript" src="~/js/WeekViewModel.js"></script>
+<script type="text/javascript" src="~/js/GameViewModel.js"></script>
+<script type="text/javascript">
+    function saveChanges() {
+        $("#savePicks").prop("disabled", true);
+        var games = Array.from(document.getElementsByClassName("game"));
+
+        var models = games.map(function (game) {
+            return ko.dataFor(game);
+        });
+        var editableModels = models.filter(function (m) {
+            return m.editable();
+        });
+        var updates = editableModels.map(function (model) {
+            return { EvenUp: model.winner(), VersusSpread: model.vsSpread(), Confidence: model.confidence(), UserId: @Model.UserId, PickId: model.pickId, GameId: model.gameId};
+        });
+        $.ajax({ type: "POST", url: "/api/Picks", data: JSON.stringify(updates), contentType: "application/json", success: onSaveComplete });
+    }
+</script>
+<form method="post" action="/">
+    @await Component.InvokeAsync("Navigation")
+    
+    <div class="picks-container">
+        <div class="my-picks-header" id="header">
+            @await Component.InvokeAsync("WeekHeader", new { userId = @Model.UserId, week = @Model.CurrentWeek})
+            <div class="save">
+                <input type="button" data-bind="{css: editable() ? 'editable': 'locked'}" value="Save" id="savePicks" onclick="saveChanges()" />
+            </div>
+        </div>
+        <div class="my-picks">
+            <div id="weekContainer">
+                @Html.Partial("Week", Model.WeekViewModel)
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function () {
+        var model = new WeekViewModel(@Model.WeekViewModel.Week, @Model.WeekViewModel.UserId, @Model.WeekViewModel.IsEditable.ToString().ToLower());
+        ko.applyBindings(model, document.getElementById("header"));
+    });
+</script>
