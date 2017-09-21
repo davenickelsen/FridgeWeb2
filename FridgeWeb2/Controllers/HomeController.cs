@@ -57,7 +57,7 @@ namespace FridgeCoreWeb.Controllers
 
         private List<GameViewGroupModel> GetGameGroups(int id, int? requestedUserId, User currentUser)
         {
-            var gameGroups = _repository.GetGameViews(id, _timeHelper.GetCurrentSeason(), requestedUserId.Value,_timeHelper.GetCurrentTime(), requestedUserId.Value == currentUser.Id);
+            var gameGroups = _repository.GetGameViews(id, _timeHelper.GetCurrentSeason(), requestedUserId.Value,_timeHelper.GetCurrentTime(), requestedUserId.Value != currentUser.Id);
             gameGroups.OrderBy(g => g.GameTime);
             return gameGroups;
         }

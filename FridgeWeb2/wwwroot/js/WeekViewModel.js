@@ -1,5 +1,4 @@
 ﻿function WeekViewModel(currentWeek, userId, editable) {
-    console.log("Model built");
     var self = this;
     self.originalUserId = userId;
     self.originalWeek = currentWeek;
