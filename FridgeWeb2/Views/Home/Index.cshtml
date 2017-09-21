@@ -32,7 +32,7 @@
         <div class="my-picks-header" id="header">
             @await Component.InvokeAsync("WeekHeader", new { userId = @Model.UserId, week = @Model.CurrentWeek})
             <div class="save">
-                <input type="button" data-bind="{css: editable() ? 'editable': 'locked'}" value="Save" id="savePicks" onclick="saveChanges()" />
+                <input type="button" data-bind="css: canEdit() ? 'editable': 'locked'" value="Save" id="savePicks" onclick="saveChanges()" />
             </div>
         </div>
         <div class="my-picks">
