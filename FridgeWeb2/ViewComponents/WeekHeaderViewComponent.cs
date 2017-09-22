@@ -27,7 +27,6 @@ namespace FridgeCoreWeb.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync(int userId, int week)
         {
-
             var rankings = "";
             if (_timeHelper.GetCurrentWeek() == 1)
             {
@@ -49,7 +48,10 @@ namespace FridgeCoreWeb.ViewComponents
 
         private string ComputeRanks(List<Standing> standings, int userId)
         {
-
+            if (userId == 28)
+            {
+                return " ";
+            }
             var userStanding = standings.Single(s => s.UserId == userId);
             var evenUpRank = GetEvenUpRank(userStanding, standings);
             var spreadRank = GetSpreadRank(userStanding, standings);
