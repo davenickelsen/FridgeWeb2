@@ -13,5 +13,6 @@ namespace FridgeWeb2.Models
         public string Rankings { get; set; }
         public int SelectedWeek { get; set; }
         public IEnumerable<SelectListItem> Weeks { get; set; }
+        public string WeekTotals { get; set; }
     }
 }

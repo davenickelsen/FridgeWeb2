@@ -17,9 +17,11 @@ namespace FridgeCoreWeb.ViewComponents
         private ITimeHelper _timeHelper;
         private IStandingsProvider _standingsProvider;
         private IUserService _userService;
+        private IWeeklyPickTotalProvider _weeklyPickTotalProvider;
 
-        public WeekHeaderViewComponent(IStandingsProvider provider, ITimeHelper timeHelper, IUserService userService)
+        public WeekHeaderViewComponent(IStandingsProvider provider, ITimeHelper timeHelper, IWeeklyPickTotalProvider wptProvider, IUserService userService)
         {
+            _weeklyPickTotalProvider = wptProvider;
             _userService = userService;
             _standingsProvider = provider;
             _timeHelper = timeHelper;
@@ -41,6 +43,7 @@ namespace FridgeCoreWeb.ViewComponents
                 SelectedUserName = _userService.GetUser(userId).FullName,
                 Users = _userService.GetAllUsers().Select(u => new SelectListItem{Text = u.FullName, Value = u.Id.ToString()}),
                 SelectedWeek = week,
+                WeekTotals = _weeklyPickTotalProvider.GetWeekSummary(userId, week),
                 Weeks = Enumerable.Range(1, _timeHelper.GetCurrentWeek()).Select(w => new SelectListItem {Text = $"Week {w}", Value = w.ToString()})
             };
             return View("Default", model);

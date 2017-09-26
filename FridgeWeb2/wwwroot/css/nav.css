@@ -7,6 +7,12 @@
 body {
   margin: 0;
 }
+.rankings-text {
+  color: navy;
+  font-family: 'Bookman Old Style';
+  font-size: medium;
+  padding-top: 3px;
+}
 div.nav {
   width: 100%;
   min-width: 420px;

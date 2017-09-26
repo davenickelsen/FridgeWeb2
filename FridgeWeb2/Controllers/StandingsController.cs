@@ -16,9 +16,11 @@ namespace FridgeCoreWeb.Controllers
         private IStandingsProvider _standingsProvider;
         private IStandingsSorter _standingsSorter;
         private IUserService _userService;
+        private IWeeklyPickTotalProvider _wptProvider;
 
-        public StandingsController(IStandingsProvider provider, ITimeHelper timeHelper, IStandingsSorter sorter, IUserService userService)
+        public StandingsController(IStandingsProvider provider, ITimeHelper timeHelper, IStandingsSorter sorter, IWeeklyPickTotalProvider wptProvider, IUserService userService)
         {
+            _wptProvider = wptProvider;
             _userService = userService;
             _standingsSorter = sorter;
             _standingsProvider = provider;
@@ -51,6 +53,14 @@ namespace FridgeCoreWeb.Controllers
             var currentUserId = _userService.GetCurrentUser().Id;
             return ComputeRanks(standings, userId.GetValueOrDefault(currentUserId));
 
+        }
+
+        [Authorize]
+        public string WeeklyTotals(int? userId, int? week)
+        {
+            userId = userId ?? _userService.GetCurrentUser().Id;
+            week = week ?? _timeHelper.GetCurrentWeek();
+            return _wptProvider.GetWeekSummary(userId.Value, week.Value);
         }
 
         private string ComputeRanks(List<Standing> standings, int userId)

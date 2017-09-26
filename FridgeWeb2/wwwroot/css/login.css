@@ -7,6 +7,12 @@
 body {
   margin: 0;
 }
+.rankings-text {
+  color: navy;
+  font-family: 'Bookman Old Style';
+  font-size: medium;
+  padding-top: 3px;
+}
 body {
   background-color: #333333;
   font-family: 'Bookman Old Style';

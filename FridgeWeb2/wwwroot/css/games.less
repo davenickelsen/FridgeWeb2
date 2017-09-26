@@ -1,13 +1,13 @@
 ﻿@import 'shared.less';
 
 div.user-header {
-    width: 70%;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
 }
 
 div.picks-container {
-    width: 70%;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
 
@@ -36,21 +36,27 @@ div.picks-container {
             }
 
             div.rankings {
-                color: navy;
-                font-family: @default-font;
-                font-size: medium;
-                padding-top: 3px;
+                .rankings-text;
             }
         }
 
+        div.week-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
 
-        div.week {
+            div.week {
 
-            select {
-                color: navy;
-                font-weight: bold;
-                font-family: @default-font;
-                font-size: large;
+                select {
+                    color: navy;
+                    font-weight: bold;
+                    font-family: @default-font;
+                    font-size: large;
+                }
+            }
+
+            div.week-totals {
+                .rankings-text;
             }
         }
 

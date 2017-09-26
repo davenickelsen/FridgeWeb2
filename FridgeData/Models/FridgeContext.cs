@@ -21,6 +21,7 @@ namespace FridgeData.Models
         public new DbSet<User> Users { get; set; }
 
         public DbSet<SeasonTotal> SeasonTotals { get; set; }
+        public DbSet<WeeklyPickTotal> WeeklyTotals { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -28,6 +29,7 @@ namespace FridgeData.Models
             builder.Entity<Pick>().ToTable("picks").HasKey(p => p.Id);
             builder.Entity<User>().ToTable("users").HasKey(u => u.Id);
             builder.Entity<SeasonTotal>().ToTable("v_season_totals").HasKey(st => st.UserId);
+            builder.Entity<WeeklyPickTotal>().ToTable("v_weekly_pick_totals").HasKey(wpt => new { wpt.Season, wpt.Week, wpt.UserId});
             builder.Entity<IdentityUserClaim<string>>().Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Entity<IdentityRoleClaim<string>>().Property(x => x.Id).ValueGeneratedOnAdd();
             // shadow properties

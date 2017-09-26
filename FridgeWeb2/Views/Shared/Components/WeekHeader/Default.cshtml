@@ -5,7 +5,10 @@
     </div>
     <div class="rankings">@Model.Rankings</div>
 </div>
-<div class="week">
-    @Html.DropDownListFor(m => m.SelectedWeek, @Model.Weeks, new { @id = "week", @data_bind = "{value: week, event: {change: onWeekChanged}}" })
+<div class="week-info">
+    <div class="week">
+        @Html.DropDownListFor(m => m.SelectedWeek, @Model.Weeks, new { @id = "week", @data_bind = "{value: week, event: {change: onWeekChanged}}" })
+    </div>
+    <div class="week-totals">@Model.WeekTotals</div>
 </div>
 

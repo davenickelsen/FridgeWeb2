@@ -7,15 +7,11 @@ using FridgeData.Models;
 using FridgeData.Standings;
 using FridgeCoreWeb.Authorization;
 using FridgeCoreWeb.Repositories;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -81,6 +77,7 @@ namespace FridgeCoreWeb
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IStandingsProvider, StandingsProvider>();
             services.AddScoped<IStandingsSorter, StandingsSorter>();
+            services.AddScoped<IWeeklyPickTotalProvider, WeeklyPickTotalProvider>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
  

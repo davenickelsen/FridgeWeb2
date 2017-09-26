@@ -7,10 +7,7 @@
   <ItemGroup>
     <Folder Include="Authorization\" />
     <Folder Include="Configuration\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Models\" />
-    <Folder Include="Standings\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -11,6 +11,7 @@ namespace FridgeData
         DbSet<User> Users { get; set; }
 
         DbSet<SeasonTotal> SeasonTotals { get; set; }
+        DbSet<WeeklyPickTotal> WeeklyTotals { get; set; }
 
         int SaveChanges();
         EntityEntry Attach(object entity);
