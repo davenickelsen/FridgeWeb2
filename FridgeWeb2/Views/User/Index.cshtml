@@ -1,0 +1,16 @@
+﻿@model FridgeCoreWeb.Models.UserViewModel
+@{
+    Layout = null;
+}
+<link rel="stylesheet" type="text/css" href="/css/user.css"/>
+@await Component.InvokeAsync("Navigation")
+@Html.BeginForm("Index", "User", null, FormMethod.Post) {
+    <div class="user-settings">
+        <div class="full-name"><label>Name:</label>@Html.LabelFor(m => m.FullName)</div>
+        <div class="login"><label>Login:</label>@Html.TextBoxFor(m => m.Login)</div>
+        <div class="email"><label>Email:</label>@Html.TextBoxFor(m => m.Email)</div>
+        <div class="old-password"><label>Old Password:</label> @Html.PasswordFor(m => m.OldPassword)</div>
+        <div class="new-password"><label>New Password:</label>@Html.PasswordFor(m => m.NewPassword)</div>
+        <div class="save"><input type="submit" value="Save" /></div>
+    </div>
+}

@@ -1,0 +1,4 @@
+div.user-settings {
+  display: flex;
+  flex-direction: column;
+}
