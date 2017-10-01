@@ -57,21 +57,22 @@ namespace FridgeWeb2.Api
 
         private string DetermineVersusSpreadWinner(FinalScoreViewModel score, Game game)
         {
-            if (score.AwayTeamScore == score.HomeTeamScore)
-            {
-                return "TIE";
-            }
-            return score.HomeTeamScore > score.AwayTeamScore ? game.HomeTeam : game.AwayTeam;
-        }
-
-        private string DetermineEvenUpWinner(FinalScoreViewModel score, Game game)
-        {
             var net = score.HomeTeamScore - score.AwayTeamScore + game.Spread.GetValueOrDefault(0);
             if (net == 0)
             {
                 return "TIE";
             }
             return net > 0 ? game.HomeTeam : game.AwayTeam;
+
+        }
+
+        private string DetermineEvenUpWinner(FinalScoreViewModel score, Game game)
+        {
+            if (score.AwayTeamScore == score.HomeTeamScore)
+            {
+                return "TIE";
+            }
+            return score.HomeTeamScore > score.AwayTeamScore ? game.HomeTeam : game.AwayTeam;
         }
     }
 }
