@@ -4,7 +4,7 @@
 <div class="games">
     @foreach (var gameSet in Model.GameGroups)
     {
-        <div class="game-time">@gameSet.GameTime.ToString("dddd, MMMM d h:mm tt")</div>
+        <div class='game-time @(gameSet.IsLondonGame ? "london" : "not-london")'>@gameSet.GameTime.ToString("dddd, MMMM d h:mm tt")&nbsp;<div class="uk-flag"></div></div>
         <div class="headers">
             <div class="home">Home</div>
             <div class="line">Line</div>

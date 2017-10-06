@@ -94,6 +94,13 @@ div.picks-container div.my-picks div.games div.game-time {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+div.picks-container div.my-picks div.games div.london div.uk-flag {
+  display: inline-block;
+  width: 32px;
+  height: 26px;
+  background-image: url('/images/UK flag.png');
+  background-repeat: no-repeat;
+}
 div.picks-container div.my-picks div.games div.headers {
   display: flex;
   flex-direction: row;

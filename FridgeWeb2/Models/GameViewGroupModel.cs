@@ -9,5 +9,6 @@ namespace FridgeCoreWeb.Models
     {
         public List<GameViewModel> GameViewModels { get; set; }
         public DateTime GameTime { get; set; }
+        public bool IsLondonGame => GameTime.Hour == 9;
     }
 }
