@@ -17,7 +17,7 @@
         {
             <div class="game" data-game-id="@game.GameId">
                 <div class="home"><div class="team-selection @game.HomeTeam.ToLower()"></div></div>
-                <div class="line">@game.DisplaySpread</div>
+                <div class="line" data-bind="{css: noLine ? 'no-line' : ''}">@game.DisplaySpread</div>
                 <div class="away"><div class="team-selection @game.AwayTeam.ToLower()"></div></div>
                 <div class="winner" data-bind="{css: editable() ? 'unlocked' : 'locked'}">                    
                     <div class="team-selection @game.EvenUpSelection?.ToLower()" data-bind="click: changeWinner, css: winnerCss"></div>
@@ -31,7 +31,10 @@
                     <!-- ko if: editable() -->
                     <select class="confidence-select" data-bind="multiple: false, options: confidences, value: confidence, event: {change: onConfidenceChanged}"></select>
                     <!-- /ko -->
-                    <!-- ko if: !editable() -->
+                    <!-- ko if: (!editable() && noLine) -->
+                    <span>&nbsp;</span>
+                    <!-- /ko -->
+                    <!-- ko if: (!editable() && !noLine) -->
                     <span>@game.Confidence.GetValueOrDefault()</span>
                     <!-- /ko -->
                     <div class="pick-status" data-bind="{css: confidenceStatus}"></div>

@@ -16,6 +16,7 @@
     self.evenUpStatus = ko.observable(context.pending ? "pending" : context.evenUpCorrect ? "correct" : "wrong");
     self.vsSpreadStatus = ko.observable(context.pending ? "pending" : context.vsSpreadCorrect ? "correct" : "wrong");
     self.confidenceStatus = ko.observable(context.pending ? "pending" : context.evenUpCorrect ? "correct" : "wrong");
+    self.noLine = context.noLine;
     self.pickId = context.pickId;
     self.gameId = context.gameId;
 

@@ -31,8 +31,9 @@ namespace FridgeCoreWeb.Repositories
                             EvenUpWinner = game.PickWinner,
                             VsSpreadWinner = game.VersusSpreadWinner,
                             GameId = game.Id,
+                            NoLine = !game.Spread.HasValue,
                             PickId = pick == null ? -1 : pick.Id,
-                            Editable = game.GameTime >= currentTime
+                            Editable = game.GameTime >= currentTime && game.Spread.HasValue
                         }).ToList();
             if (restricted)
             {

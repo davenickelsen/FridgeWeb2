@@ -89,8 +89,6 @@ div.picks-container {
                 font-family: @default-font;
                 padding-top: 10px;
                 padding-bottom: 10px;
-
-                
             }
 
             div.london {
@@ -129,6 +127,8 @@ div.picks-container {
             }
 
             div.game {
+
+
                 &:nth-child(even) {
                     background-color: lightgray;
 
@@ -191,6 +191,10 @@ div.picks-container {
                     font-size: 14pt;
                     font-weight: bold;
                     width: 40px;
+
+                    &.no-line {
+                        visibility: hidden;
+                    }
                 }
 
 
@@ -232,7 +236,7 @@ div.picks-container {
                     }
 
                     div.pick-status {
-                        top: 18px;
+                        top: 14px;
                     }
                 }
             }

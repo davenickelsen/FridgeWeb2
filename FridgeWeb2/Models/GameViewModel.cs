@@ -36,6 +36,7 @@ namespace FridgeCoreWeb.Models
 
         public bool? VsSpreadCorrect => VsSpreadWinner != null && VsSpreadWinner == VsSpreadSelection;
         public bool Editable { get; set; }
+        public bool NoLine { get; set; }
 
         public bool Pending => !Editable && EvenUpWinner == null;
     }
