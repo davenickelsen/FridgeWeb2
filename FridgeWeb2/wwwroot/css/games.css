@@ -41,6 +41,7 @@ div.picks-container div.my-picks-header div.user-info div.user select {
   padding-top: 3px;
   font-family: 'Bookman Old Style';
   font-size: large;
+  height: 30px;
 }
 div.picks-container div.my-picks-header div.user-info div.rankings {
   color: navy;
@@ -58,6 +59,7 @@ div.picks-container div.my-picks-header div.week-info div.week select {
   font-weight: bold;
   font-family: 'Bookman Old Style';
   font-size: large;
+  height: 30px;
 }
 div.picks-container div.my-picks-header div.week-info div.week-totals {
   color: navy;

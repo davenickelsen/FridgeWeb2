@@ -43,7 +43,7 @@ namespace FridgeCoreWeb.Repositories
             {
                 GameTime = group.Key,
                 GameViewModels = group.ToList(),
-            }).ToList();
+            }).OrderBy(g => g.GameTime).ToList();
         }
 
         private List<GameViewModel> MaskUncommittedGames(IEnumerable<GameViewModel> games)
