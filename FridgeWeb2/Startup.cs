@@ -107,7 +107,7 @@ namespace FridgeCoreWeb
             app.UseStaticFiles(new StaticFileOptions()
             {
                 FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\docs")),
+                    Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot/docs")),
                 RequestPath = new PathString("/docs")
             });
 
