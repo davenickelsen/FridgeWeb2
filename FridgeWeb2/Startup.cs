@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using FridgeData;
 using FridgeData.Authorization;
 using FridgeData.Configuration;
@@ -14,6 +15,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 
 
@@ -101,6 +103,13 @@ namespace FridgeCoreWeb
             }
 
             app.UseStaticFiles();
+
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\docs")),
+                RequestPath = new PathString("/docs")
+            });
 
             app.UseAuthentication();
 
