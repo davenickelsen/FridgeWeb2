@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Linq;
+using FridgeData;
 using FridgeData.Authorization;
+using FridgeData.Models;
 using FridgeWeb2.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -11,9 +14,11 @@ namespace FridgeWeb2.Api
     public class UsersController
     {
         private IUserService _userService;
+        private IFridgeContext _context;
 
-        public UsersController(IUserService userService)
+        public UsersController(IUserService userService, IFridgeContext context)
         {
+            _context = context;
             _userService = userService;
         }
 
@@ -26,13 +31,17 @@ namespace FridgeWeb2.Api
                 throw new UnauthorizedAccessException("Bad key");
             }
 
-            var user = _userService.FindByIdAsync(model.UserName).GetAwaiter().GetResult();
+            User user = _context.Users.SingleOrDefault(u => u.Login.ToLower() == model.Login.ToLower());
             if (user != null)
             {
                 throw new Exception("User already exists");
             }
 
-            return _userService.CreateAsync(new AppUser {Id = model.UserName}, model.Password).GetAwaiter().GetResult() == IdentityResult.Success;
+            user = new User {FirstName = model.FirstName, Active = true, Admin = false, LastName = model.LastName, Email = model.Email, Login = model.Login, ScrambledPassword = "Default"};
+            _context.Users.Add(user);
+            _context.SaveChanges();
+            
+            return _userService.CreateAsync(new AppUser {Id = user.Id.ToString(), UserName = model.Login}, model.Password).GetAwaiter().GetResult() == IdentityResult.Success;
         }
         
         
