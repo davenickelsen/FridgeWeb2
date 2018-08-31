@@ -55,7 +55,9 @@ namespace FridgeCoreWeb.ViewComponents
             {
                 return " ";
             }
-            var userStanding = standings.Single(s => s.UserId == userId);
+            var userStanding = standings.SingleOrDefault(s => s.UserId == userId);
+            if (userStanding == null)
+                return " ";
             var evenUpRank = GetEvenUpRank(userStanding, standings);
             var spreadRank = GetSpreadRank(userStanding, standings);
             var confidenceRank = GetConfidenceRank(userStanding, standings);

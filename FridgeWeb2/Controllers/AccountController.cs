@@ -29,6 +29,23 @@ namespace FridgeCoreWeb.Controllers
             _signInManager = signInManager;
         }
 
+       [AllowAnonymous]
+       public string Test()
+       {
+           var result = false;
+           try
+           {
+               result = _context.Users.First() != null;
+           }
+           catch (Exception e)
+           {
+               return e.Message.ToString();
+           }
+
+           return result.ToString();
+       }
+        
+
         [AllowAnonymous]
         // GET: /<controller>/
         public IActionResult LogIn()

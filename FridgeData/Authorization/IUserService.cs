@@ -17,6 +17,5 @@ namespace FridgeData.Authorization
         User GetCurrentUser();
 
         //Task<bool> Test();
-
     }
 }

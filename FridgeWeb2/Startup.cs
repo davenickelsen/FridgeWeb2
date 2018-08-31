@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -60,10 +61,11 @@ namespace FridgeCoreWeb
             });
 
 
-
-            //var sqlConnectionString = Configuration.GetConnectionString("FridgeConnection");
-
-            services.AddDbContext<FridgeContext>();
+            var password = Environment.GetEnvironmentVariable("FRIDGE_DB_PASSWORD");
+            var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            var server = env == "Production" ? "localhost" : "localhost.docker";
+            var sqlConnectionString = string.Format(Configuration.GetConnectionString("FridgeConnection"), server, password);
+            services.AddDbContext<FridgeContext>(options => options.UseMySql(sqlConnectionString));
 
             ConfigureIdentity(services);
 
