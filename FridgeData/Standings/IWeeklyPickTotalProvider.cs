@@ -29,6 +29,11 @@ namespace FridgeData.Standings
                 return " ";
             }
 
+            if (!total.PicksCorrect.HasValue)
+            {
+                return $"{total.GameCount} games";
+            }
+
             return $"{total.PicksCorrect} / {total.VersusSpreadCorrect} / {total.ConfidenceAwarded} over {total.GameCount} games";
 
         }
