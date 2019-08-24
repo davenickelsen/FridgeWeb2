@@ -30,7 +30,6 @@ namespace FridgeCoreWeb
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddJsonFile($"config.json", optional: false)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -61,11 +60,8 @@ namespace FridgeCoreWeb
             });
 
 
-            var password = Environment.GetEnvironmentVariable("FRIDGE_DB_PASSWORD");
             var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            var server = env == "Production" ? "localhost" : "localhost.docker";
-            var sqlConnectionString = string.Format(Configuration.GetConnectionString("FridgeConnection"), server, password);
-            services.AddDbContext<FridgeContext>(options => options.UseMySql(sqlConnectionString));
+            services.AddDbContext<FridgeContext>(options => options.UseMySql(Configuration.GetConnectionString("Default")));
 
             ConfigureIdentity(services);
 
