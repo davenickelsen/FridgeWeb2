@@ -16,6 +16,7 @@ namespace FridgeData.Models
         public bool? Admin { get; set; }
         public DateTime? LastViewedMessages { get; set; }
         public bool? Active { get; set; }
+        public bool? NonPaying { get; set; }
         public ICollection<Pick> Picks { get; set; }
     }
 }

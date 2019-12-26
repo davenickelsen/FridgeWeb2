@@ -18,7 +18,7 @@ namespace FridgeData.Standings
             var standingEntities = (from s in _context.SeasonTotals
                 join u in _context.Users
                 on s.UserId equals u.Id
-                where s.Season == season && u.Login.ToLower() != "chase" && u.Login.ToLower() != "cole"
+                where s.Season == season && !(u.NonPaying ?? false)
                 select new { Standing = s, User = u }).ToList();
             var standings = standingEntities.Select(s => new Standing
             {
