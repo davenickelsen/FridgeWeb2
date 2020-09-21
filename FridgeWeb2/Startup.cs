@@ -61,7 +61,12 @@ namespace FridgeCoreWeb
 
 
             var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            services.AddDbContext<FridgeContext>(options => options.UseMySql(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<FridgeContext>(options =>
+            {
+                var connectionString =
+                    "server=localhost;port=3306;database=fridgefootball;user=fridgefootball;password=G0Whyte!;Pooling =True";//Configuration.GetConnectionString("Default");
+                options.UseMySql(connectionString);
+            });
 
             ConfigureIdentity(services);
 
