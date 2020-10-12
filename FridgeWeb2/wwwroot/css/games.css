@@ -149,10 +149,10 @@ div.picks-container div.my-picks div.games div.game:nth-child(even) .vs-spread.u
 div.picks-container div.my-picks div.games div.game .locked div.pick-status {
   background-repeat: no-repeat;
   height: 16px;
-  width: 16px;
+  width: 23px;
   position: relative;
-  top: 45px;
-  left: 15px;
+  top: 35px;
+  left: 10px;
 }
 div.picks-container div.my-picks div.games div.game .locked div.pick-status.correct {
   background-image: url('/images/check.gif');
