@@ -3,7 +3,7 @@
     Layout = null;
 }
 
-<link rel="stylesheet" href="css/standings.css" />
+<link rel="stylesheet" href="css/@(FridgeData.Helpers.TimeHelper.IsChristmas ? "standings-alt.css" : "standings.css")" />
 
 @await Component.InvokeAsync("Navigation")
 <div class="standings-container">

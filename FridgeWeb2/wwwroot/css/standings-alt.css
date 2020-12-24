@@ -1,0 +1,90 @@
+.action-button {
+  font-family: 'Bookman Old Style';
+  font-size: larger;
+  background-color: firebrick;
+  color: white;
+}
+body {
+  margin: 0;
+}
+.rankings-text {
+  color: black;
+  font-family: 'Bookman Old Style';
+  font-size: medium;
+  padding-top: 3px;
+}
+div.standings-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: black;
+}
+div.standings-container div.standings-list {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  font-family: 'Bookman Old Style';
+  flex-direction: column;
+}
+div.standings-container div.standings-list div {
+  padding: 6px 6px 6px 6px;
+}
+div.standings-container div.standings-list div.full-name {
+  min-width: 140px;
+}
+div.standings-container div.standings-list .picks-correct,
+div.standings-container div.standings-list .vs-spread-correct,
+div.standings-container div.standings-list .confidence-correct {
+  min-width: 120px;
+}
+div.standings-container div.standings-list .sort-arrow {
+  display: none;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div.standings-container div.standings-list div.standings-header {
+  display: flex;
+  flex-direction: row;
+}
+div.standings-container div.standings-list div.standings-header div.picks-correct div#picksSort.picks-desc {
+  display: inline;
+  background-image: url('/images/arrow-down.gif');
+  background-repeat: no-repeat;
+}
+div.standings-container div.standings-list div.standings-header div.picks-correct div#picksSort.picks-asc {
+  display: inline;
+  background-image: url('/images/arrow-up.gif');
+  background-repeat: no-repeat;
+}
+div.standings-container div.standings-list div.standings-header div.vs-spread-correct div#spreadSort.spread-desc {
+  display: inline;
+  background-image: url('/images/arrow-down.gif');
+  background-repeat: no-repeat;
+}
+div.standings-container div.standings-list div.standings-header div.vs-spread-correct div#spreadSort.spread-asc {
+  display: inline;
+  background-image: url('/images/arrow-up.gif');
+  background-repeat: no-repeat;
+}
+div.standings-container div.standings-list div.standings-header div.confidence-correct div#confidenceSort.confidence-desc {
+  display: inline;
+  background-image: url('/images/arrow-down.gif');
+  background-repeat: no-repeat;
+}
+div.standings-container div.standings-list div.standings-header div.confidence-correct div#confidenceSort.confidence-asc {
+  display: inline;
+  background-image: url('/images/arrow-up.gif');
+  background-repeat: no-repeat;
+}
+div.standings-container div.standings-list div.standing {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #165B33;
+}
+div.standings-container div.standings-list div.standing:nth-child(even) {
+  background-color: lightgray;
+}
+div.standings-container div.standings-list div.standing.current-user {
+  background-color: #F8B229;
+}

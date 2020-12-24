@@ -41,5 +41,10 @@ namespace FridgeData.Helpers
 
         }
 
+        public static bool IsChristmas
+        {
+            get { return DateTime.Now.Month == 12 && DateTime.Now.Day > 19; }
+        }
+
     }
 }

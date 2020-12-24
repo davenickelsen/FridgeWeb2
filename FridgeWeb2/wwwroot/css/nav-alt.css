@@ -1,0 +1,63 @@
+.action-button {
+  font-family: 'Bookman Old Style';
+  font-size: larger;
+  background-color: firebrick;
+  color: white;
+}
+body {
+  margin: 0;
+}
+.rankings-text {
+  color: black;
+  font-family: 'Bookman Old Style';
+  font-size: medium;
+  padding-top: 3px;
+}
+div.nav {
+  width: 100%;
+  min-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  background-color: firebrick;
+  border: 1px solid #165B33;
+}
+div.nav div.title {
+  background-color: #165B33;
+  color: firebrick;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  font-family: 'Bookman Old Style';
+  padding: 6px 2px 6px 2px;
+}
+div.nav div.inner-nav {
+  display: flex;
+  width: 70%;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: firebrick;
+  font-family: 'Bookman Old Style';
+  font-size: large;
+  color: white;
+  font-weight: bold;
+  padding: 6px 2px 6px 2px;
+}
+div.nav div.inner-nav div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+div.nav div.inner-nav div a {
+  text-decoration: none;
+  color: white;
+}
+div.nav div.inner-nav div a:visited {
+  color: white;
+  font-weight: bold;
+}
+div.nav div.inner-nav div a:hover {
+  color: #146B3A;
+  cursor: pointer;
+}

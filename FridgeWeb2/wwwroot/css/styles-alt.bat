@@ -1,0 +1,1 @@
+move shared.less shared1.less && move christmas.less shared.less && lessc games.less games-alt.css && lessc lines.less lines-alt.css && lessc login.less login-alt.css && lessc nav.less nav-alt.css && lessc standings.less standings-alt.css && lessc teams.less teams-alt.css && move shared.less christmas.less && move shared1.less shared.less

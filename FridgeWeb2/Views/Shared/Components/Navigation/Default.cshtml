@@ -1,5 +1,5 @@
 ﻿@model FridgeCoreWeb.Models.NavigationViewModel
-<link rel="stylesheet" type="text/css" href="/css/nav.css" />
+<link rel="stylesheet" type="text/css" href="/css/@(FridgeData.Helpers.TimeHelper.IsChristmas ? "nav-alt.css": "nav.css")" />
 <div class="nav">
     <div class="title">
         Fridge Football

@@ -4,8 +4,8 @@
 @{
     Layout = null;
 }
-<link rel="stylesheet" href="~/css/lines.css" />
-<link rel="stylesheet" href="~/css/teams.css" />
+<link rel="stylesheet" href="~/css/@(FridgeData.Helpers.TimeHelper.IsChristmas ? "lines-alt.css" : "lines.css")" />
+<link rel="stylesheet" href="~/css/@(FridgeData.Helpers.TimeHelper.IsChristmas ? "teams-alt.css" : "teams.css")" />
 <link rel="stylesheet" href="~/css/alertify.min.css" />
 <link rel="stylesheet" href="~/css/override.css" />
 <script src="~/lib/jquery/dist/jquery.js"></script>
