@@ -7,12 +7,12 @@ div.nav {
     flex-direction: column;
     align-content: center;
     align-items: center;
-    background-color: darkorange;
-    border: 1px solid black;
+    background-color: @primary1;
+    border: 1px solid @primary2;
 
     div.title {
-        background-color: black;
-        color: darkorange;
+        background-color: @primary2;
+        color: @primary1;
         text-align: center;
         width: 100%;
         font-weight: bold;
@@ -25,10 +25,10 @@ div.nav {
         width: 70%;
         flex-direction: row;
         justify-content: space-between;
-        background-color: darkorange;
+        background-color: @primary1;
         font-family: @default-font;
         font-size: large;
-        color: white;
+        color: @primary3;
         font-weight: bold;
         padding: 6px 2px 6px 2px;
 
@@ -39,16 +39,16 @@ div.nav {
 
             a {
                 text-decoration: none;
-                color: white;
+                color: @primary3;
             }
 
             a:visited {
-                color: white;
+                color: @primary3;
                 font-weight: bold;
             }
 
             a:hover {
-                color: navy;
+                color: @hover;
                 cursor: pointer;
             }
         }
