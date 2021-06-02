@@ -60,11 +60,12 @@ namespace FridgeCoreWeb
             });
 
 
-            var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            var dbPassword = Environment.GetEnvironmentVariable("FRIDGE_DB_PASSWORD");
             services.AddDbContext<FridgeContext>(options =>
             {
-                var connectionString =
-                    "server=localhost;port=3306;database=fridgefootball;user=fridgefootball;password=G0Whyte!;Pooling =True";//Configuration.GetConnectionString("Default");
+                var connectionString = string.Format(
+                    "server=localhost;port=3306;database=fridgefootball;user=fridgefootball;password={0};Pooling =True",
+                    dbPassword);
                 options.UseMySql(connectionString);
             });
 
